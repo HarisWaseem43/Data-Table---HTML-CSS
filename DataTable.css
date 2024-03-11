@@ -1,0 +1,94 @@
+/* Center heading */
+.h1 {
+  text-align: center;
+}
+
+/* Responsive container */
+.container {
+  overflow: auto;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 100%;
+  height: 80vh;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Sticky table header */
+.table th {
+  text-transform: uppercase;
+  background-color: #057845;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* Alternate row background color */
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect */
+.table tbody tr:hover {
+  background-color: #05884f;
+  color: white;
+}
+
+/* Center align action column */
+.Act {
+  text-align: center !important;
+}
+.action {
+  display: flex;
+  align-items: center;
+}
+
+/* Button Styling */
+.table tbody tr td button {
+  background-color: #c2fbd7;
+  border-radius: 10px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  margin: 4px;
+  padding: 8px 16px;
+  transition: all 250ms;
+  border: 0;
+}
+
+.table tbody tr td button:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/* Text truncation with ellipsis */
+.des,
+.title {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Show full text on hover */
+.des:hover {
+  overflow: visible;
+  text-wrap: wrap;
+}
