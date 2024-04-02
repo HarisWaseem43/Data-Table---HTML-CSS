@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Table</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="Dashboard">
+      <!-- For Large Screen Sidebar -->
+      <div class="sidebar">
+        <div class="Logo"><i class="fa fa-table"> Data Table</i></div>
+        <div class="main_Name_Container">
+          <div class="user_Img" id>
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="user_Data">
+            <div class="userName">Name</div>
+            <div class="userEmail">Email</div>
+          </div>
+        </div>
+        <div class="PrBar Pr-Table" id="prOwner">
+          <i class="fa fa-th-large Fa_Icon"></i>Product Management
+        </div>
+        <div class="PrBar" id="prManager">
+          <i class="fa fa-suitcase Fa_Icon"></i>Product Owner
+        </div>
+        <div class="PrBar" id="prSales">
+          <i class="fa fa-users Fa_Icon"></i>Sales Manager
+        </div>
+        <div class="PrBar" id="prvendor">
+          <i class="fa fa-life-ring Fa_Icon"></i>Vendor Management
+        </div>
+        <div class="PrBar" id="prStocks">
+          <i class="fa fa-university Fa_Icon"></i>Stocks
+        </div>
+        <div class="PrBar" id="prLogout">
+          <i class="fa fa-address-book Fa_Icon"></i>Logout
+        </div>
+      </div>
+      <!-- For Mobile Screen Navbar -->
+      <div class="nav_sidebar">
+        <span class="close-btn" onclick="toggleNav()">
+          <i class="fa fa-times"></i>
+        </span>
+        <div class="Logo"><i class="fa fa-table"> Data Table</i></div>
+        <div class="main_Name_Container">
+          <div class="user_Img" id>
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="user_Data">
+            <div class="userName1">Name</div>
+            <div class="userEmail2">Email</div>
+          </div>
+        </div>
+        <div class="PrBar Pr-Table" id="prOwner">
+          <i class="fa fa-th-large Fa_Icon"></i>Product Management
+        </div>
+        <div class="PrBar" id="prManager">
+          <i class="fa fa-suitcase Fa_Icon"></i>Product Owner
+        </div>
+        <div class="PrBar" id="prSales">
+          <i class="fa fa-users Fa_Icon"></i>Sales Manager
+        </div>
+        <div class="PrBar" id="prvendor">
+          <i class="fa fa-life-ring Fa_Icon"></i>Vendor Management
+        </div>
+        <div class="PrBar" id="prStocks">
+          <i class="fa fa-university Fa_Icon"></i>Stocks
+        </div>
+        <div class="PrBar" id="prLogout">
+          <i class="fa fa-address-book Fa_Icon"></i>Logout
+        </div>
+      </div>
+      <!-- Hamburger icon -->
+      <div class="hamburger">
+        <div class="hamburger-icon" onclick="toggleNav()">
+          <p class="HamburgerImg">
+            <i class="fa fa-bars"></i>
+          </p>
+        </div>
+      </div>
+      <!-- Mobile Navbar End -->
+      <div class="Main_Container_Content">
+        <div class="main-content">
+          <div class="header_Flex">
+            <h1 class="h1">Product Management</h1>
+            <div>
+              <div class="add_Column">
+                <input
+                  title="Add More Columns"
+                  type="text"
+                  id="addColumnInput"
+                />
+                <button id="addColumnBtn">Add Column</button>
+              </div>
+              <div class="productBtnDiv">
+                <button data-open-modal class="addProductBtn">
+                  Add Product
+                </button>
+                <dialog id="addProductModal" data-modal class="modal">
+                  <div class="addProductModalHeader">
+                    <div class="addModalHeading">
+                      <div>Add Product</div>
+                    </div>
+                    <div class="closeAddProductModalBtn">
+                      <button data-close-modal>
+                        <i class="fa fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <form id="register-form">
+                    <div class="main_Inputs_Container">
+                      <div class="id_input">
+                        <label htmlFor="text" className="label">ID</label>
+                        <input type="text" class="add_input" id="id" />
+                      </div>
+                      <div class="name_input">
+                        <label htmlFor="text" className="label">Name</label>
+                        <input type="text" class="add_input" id="pName" />
+                      </div>
+                      <div class="title_input">
+                        <label htmlFor="text" className="label">Title</label>
+                        <input type="text" class="add_input" id="pTitle" />
+                      </div>
+                      <div class="description_input">
+                        <label htmlFor="text" className="label"
+                          >Description</label
+                        >
+                        <input
+                          type="text"
+                          class="add_input"
+                          id="pDescription"
+                        />
+                      </div>
+                      <div class="vendor_input">
+                        <label htmlFor="text" className="label">Vendor</label>
+                        <input type="text" class="add_input" id="pVendor" />
+                      </div>
+                      <div class="inStock_input">
+                        <label htmlFor="text" className="label">In Stock</label>
+                        <input type="text" class="add_input" id="pStock" />
+                      </div>
+                      <div class="buyingPrice_input">
+                        <label htmlFor="text" className="label"
+                          >Buying Price</label
+                        >
+                        <input type="text" class="add_input" id="pBuying" />
+                      </div>
+                      <div class="salePrice_input">
+                        <label htmlFor="text" className="label"
+                          >Sale Price</label
+                        >
+                        <input type="text" class="add_input" id="pSale" />
+                      </div>
+                      <div class="quantity_input">
+                        <label htmlFor="text" className="label">Quantity</label>
+                        <input type="text" class="add_input" id="pQuantity" />
+                      </div>
+                      <div class="types_input">
+                        <label htmlFor="text" className="label">Types</label>
+                        <input type="text" class="add_input" id="pType" />
+                      </div>
+                      <div class="shipment_input">
+                        <label htmlFor="text" className="label">Shipment</label>
+                        <input type="text" class="add_input" id="pShipment" />
+                      </div>
+                      <div class="refillLimit_input">
+                        <label htmlFor="text" className="label"
+                          >Refill Limit</label
+                        >
+                        <input type="text" class="add_input" id="pRefill" />
+                      </div>
+                      <div class="location_input">
+                        <label htmlFor="text" className="label">Location</label>
+                        <input type="text" class="add_input" id="pLocation" />
+                      </div>
+                    </div>
+                    <div class="addProductButtonDiv">
+                      <button class="addProductBtn1" id="register-btn">
+                        Save
+                      </button>
+                      <button class="addProductBtn2">Cancel</button>
+                    </div>
+                  </form>
+                </dialog>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <table id="dataTable" class="table">
+              <thead>
+                <tr>
+                  <th class="fixed_Select">Select</th>
+                  <th class="id sortable" data-column="id">
+                    ID <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="id"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="name">
+                    Name
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="name"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="title">
+                    Title
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="title"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="description">
+                    Description
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="description"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="vendor">
+                    Vendor
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="vendor"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="stock">
+                    In Stock
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="stock"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="buying">
+                    Buying Price
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="buying"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="sale">
+                    Sale Price
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="sale"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="quantity">
+                    Quantity
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="quantity"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="type">
+                    Types
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="type"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="shipment">
+                    Shipment
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="shipment"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="refill">
+                    Refill Limit
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="refill"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="sortable" data-column="location">
+                    Location
+                    <i class="fas fa-plus"></i>
+                    <input
+                      type="text"
+                      class="search-input"
+                      data-column="location"
+                      style="display: none"
+                    />
+                    <i class="fas fa-minus" style="display: none"></i>
+                  </th>
+                  <th class="Actions_Fixed">Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleNav() {
+        const navSidebar = document.querySelector(".nav_sidebar");
+        navSidebar.classList.toggle("show");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const logoutButton = document.getElementById("prLogout");
+        logoutButton.addEventListener("click", function () {
+          localStorage.removeItem("loggedInUser");
+          window.location.href = "../LoginForm/index.html";
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const users = JSON.parse(localStorage.getItem("loggedInUser"));
+
+        const userNameElement = document.querySelector(".userName");
+        const userEmailElement = document.querySelector(".userEmail");
+        const userNameElement1 = document.querySelector(".userName1");
+        const userEmailElement2 = document.querySelector(".userEmail2");
+
+        userNameElement.textContent = users.name;
+        userEmailElement.textContent = users.email;
+        userNameElement1.textContent = users.name;
+        userEmailElement2.textContent = users.email;
+      });
+
+      function sortTable(columnIndex, asc) {
+        const tableBody = document.querySelector("#dataTable tbody");
+        const rows = Array.from(tableBody.querySelectorAll("tr"));
+        console.log(columnIndex);
+
+        rows.sort((a, b) => {
+          let aValue = a.children[columnIndex].textContent.trim();
+          let bValue = b.children[columnIndex].textContent.trim();
+          if (columnIndex === 7 || columnIndex === 8) {
+            aValue = aValue.replace("$", "");
+            bValue = bValue.replace("$", "");
+          }
+          if (!isNaN(parseFloat(aValue))) {
+            return asc
+              ? parseFloat(aValue) - parseFloat(bValue)
+              : parseFloat(bValue) - parseFloat(aValue);
+          } else {
+            return asc
+              ? aValue.localeCompare(bValue)
+              : bValue.localeCompare(aValue);
+          }
+        });
+
+        tableBody.innerHTML = "";
+        rows.forEach((row) => tableBody.appendChild(row));
+      }
+
+      function toggleSortOrder(element) {
+        let asc = element.classList.contains("asc");
+        const columnIndex = element.cellIndex;
+
+        const headers = document.querySelectorAll(".sortable");
+        headers.forEach((header) => header.classList.remove("asc", "desc"));
+
+        if (asc) {
+          element.classList.remove("asc");
+          element.classList.add("desc");
+        } else {
+          element.classList.remove("desc");
+          element.classList.add("asc");
+        }
+
+        sortTable(columnIndex, asc);
+      }
+
+      const headers = document.querySelectorAll(".sortable");
+      headers.forEach((header) => {
+        header.addEventListener("click", (event) => {
+          if (
+            event.target.tagName.toLowerCase() === "i" &&
+            (event.target.classList.contains("fa-plus") ||
+              event.target.classList.contains("fa-minus"))
+          ) {
+            const input =
+              event.target.parentElement.querySelector(".search-input");
+            const plusIcon = event.target.classList.contains("fa-plus")
+              ? event.target
+              : event.target.parentElement.querySelector(".fa-plus");
+            const minusIcon = event.target.classList.contains("fa-minus")
+              ? event.target
+              : event.target.parentElement.querySelector(".fa-minus");
+            if (input) {
+              if (input.style.display === "none") {
+                input.style.display = "";
+                plusIcon.style.display = "none";
+                minusIcon.style.display = "";
+                input.focus();
+              } else {
+                input.style.display = "none";
+                plusIcon.style.display = "";
+                minusIcon.style.display = "none";
+              }
+            }
+          } else {
+            toggleSortOrder(header);
+          }
+        });
+      });
+
+      document.querySelectorAll(".search-input").forEach((input) => {
+        input.addEventListener("click", (event) => {
+          event.stopPropagation();
+        });
+      });
+
+      function filterTable() {
+        const searchInputs = document.querySelectorAll(".search-input");
+        const tableRows = document.querySelectorAll("#dataTable tbody tr");
+
+        tableRows.forEach((row) => {
+          let rowVisible = true;
+          searchInputs.forEach((input) => {
+            const columnIndex = input.dataset.column;
+            const searchText = input.value.toLowerCase();
+            const rowData = row
+              .querySelector(`td.${columnIndex}`)
+              .textContent.toLowerCase();
+            if (rowData.indexOf(searchText) === -1) {
+              rowVisible = false;
+            }
+          });
+          row.style.display = rowVisible ? "" : "none";
+        });
+      }
+      document.querySelectorAll(".search-input").forEach((input) => {
+        input.addEventListener("input", filterTable);
+      });
+
+      function addColumn(columnName) {
+        const tableHead = document.querySelector("#dataTable thead tr");
+        const newColumn = document.createElement("th");
+        newColumn.textContent = columnName;
+        newColumn.classList.add("sortable");
+        newColumn.dataset.column = columnName.toLowerCase();
+        tableHead.insertBefore(newColumn, tableHead.lastElementChild);
+
+        const tableBody = document.querySelector("#dataTable tbody");
+        const rows = tableBody.querySelectorAll("tr");
+        rows.forEach((row) => {
+          const newCell = document.createElement("td");
+          newCell.textContent = "New Cell";
+          newCell.classList.add(columnName.toLowerCase());
+          row.insertBefore(newCell, row.lastElementChild);
+        });
+      }
+
+      document
+        .getElementById("addColumnBtn")
+        .addEventListener("click", function () {
+          const columnName = document
+            .getElementById("addColumnInput")
+            .value.trim();
+          if (columnName !== "") {
+            addColumn(columnName);
+            document.getElementById("addColumnInput").value = "";
+          }
+        });
+
+      const openAddProductBtn = document.querySelector(".addProductBtn");
+      const closeBtn = document.querySelector("[data-close-modal]");
+      const modal = document.querySelector("[data-modal]");
+
+      openAddProductBtn.addEventListener("click", () => {
+        modal.showModal();
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.close();
+      });
+
+      let userData = [];
+      let id = document.getElementById("id");
+      let name = document.getElementById("pName");
+      let title = document.getElementById("pTitle");
+      let description = document.getElementById("pDescription");
+      let vendor = document.getElementById("pVendor");
+      let stock = document.getElementById("pStock");
+      let buying = document.getElementById("pBuying");
+      let sale = document.getElementById("pSale");
+      let quantity = document.getElementById("pQuantity");
+      let type = document.getElementById("pType");
+      let shipment = document.getElementById("pShipment");
+      let refill = document.getElementById("pRefill");
+      let locationAdd = document.getElementById("pLocation");
+      let registerBtn = document.querySelector("#register-btn");
+      let registerForm = document.querySelector("#register-form");
+
+      registerBtn.onclick = function () {
+        // e.preventDefault();
+        registrationData();
+        registerForm.reset("");
+      };
+
+      if (localStorage.getItem("userData") != null) {
+        userData = JSON.parse(localStorage.getItem("userData"));
+      }
+      console.log("Get The User Data ", userData);
+      const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (!currentUser) {
+        console.log("Error");
+      }
+      function registrationData() {
+        userData.push({
+          email: currentUser.email,
+          id: id.value,
+          name: name.value,
+          title: title.value,
+          description: description.value,
+          vendor: vendor.value,
+          stock: stock.value,
+          buying: buying.value,
+          sale: sale.value,
+          quantity: quantity.value,
+          type: type.value,
+          shipment: shipment.value,
+          refill: refill.value,
+          locationAdd: locationAdd.value,
+        });
+        let userString = JSON.stringify(userData);
+        localStorage.setItem("userData", userString);
+      }
+      const userMData = JSON.parse(localStorage.getItem("userMData"));
+      // console.log(userMData);
+
+      let mergedData = [...userMData, ...userData];
+
+      function populateTable() {
+        const tableBody = document.querySelector("#dataTable tbody");
+
+        const userMData = JSON.parse(localStorage.getItem("userMData"));
+        // console.log("UserMData", userMData);
+
+        const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        const userProduct = userData.filter(
+          (item) => item.email === currentUser.email
+        );
+        // let userMergedData = JSON.stringify(mergedData);
+        // localStorage.setItem("mergedData", userMergedData);
+        console.log("User-Data:", userData);
+
+        const mergedData = [...userMData, ...userData];
+
+        mergedData.forEach((item) => {
+          const row = document.createElement("tr");
+          row.innerHTML += `
+                <td class="fixed_Select input"><input type="checkbox" /></td>
+                <td class="id">${item.id}</td>
+                <td class="name">${item.name}</td>
+                <td class="title">${item.title}</td>
+                <td class="description">${item.description}</td>
+                <td class="vendor">${item.vendor}</td>
+                <td class="stock">${item.stock}</td>
+                <td class="buying">${item.buying}</td>
+                <td class="sale">${item.sale}</td>
+                <td class="quantity">${item.quantity}</td>
+                <td class="type">${item.type}</td>
+                <td class="shipment">${item.shipment}</td>
+                <td class="refill">${item.refill}</td>
+                <td class="location">${item.locationAdd || item.location}</td>
+                <td class="actionbtn Actions_Fixed">
+                </td>
+            `;
+          tableBody.appendChild(row);
+          const actionCell = row.querySelector(".Actions_Fixed");
+          actionCell.appendChild(createActionsDropdown(item.id));
+        });
+      }
+
+      function createActionsDropdown(id) {
+        const dropdown = document.createElement("div");
+        dropdown.classList.add("dropdown");
+
+        const button = document.createElement("button");
+        button.classList.add("dropbtn");
+        button.innerHTML = '<i class="fas fa-ellipsis-v"></i>';
+        dropdown.appendChild(button);
+
+        const dropdownContent = document.createElement("div");
+        dropdownContent.classList.add("dropdown-content");
+
+        const viewProductBtn = document.createElement("button");
+        viewProductBtn.innerHTML =
+          '<i class="fa fa-user-plus"></i> View Product';
+        viewProductBtn.addEventListener("click", () => {
+          const modalElement = document.getElementById("viewProductModal");
+          const test = mergedData.find((row) => {
+            return row.id === id;
+          });
+          console.log("Test ", test);
+          modalElement.querySelector("#modal-id").innerText = test.id;
+          modalElement.querySelector("#modal-name").innerText = test.name;
+          modalElement.querySelector("#modal-title").innerText = test.title;
+          modalElement.querySelector("#modal-description").innerText =
+            test.description;
+          modalElement.querySelector("#modal-vendor").innerText = test.vendor;
+          modalElement.querySelector("#modal-stock").innerText = test.stock;
+          modalElement.querySelector("#modal-buying").innerText = test.buying;
+          modalElement.querySelector("#modal-sale").innerText = test.sale;
+          modalElement.querySelector("#modal-quantity").innerText =
+            test.quantity;
+          modalElement.querySelector("#modal-type").innerText = test.type;
+          modalElement.querySelector("#modal-shipment").innerText =
+            test.shipment;
+          modalElement.querySelector("#modal-refill").innerText = test.refill;
+          modalElement.querySelector("#modal-location").innerText =
+            test.location || test.locationAdd;
+          modalElement.showModal();
+        });
+        const closeViewElement = document.getElementById("closeViewProduct");
+        closeViewElement.addEventListener("click", () => {
+          const modalElement = document.getElementById("viewProductModal");
+          modalElement.close();
+        });
+
+        dropdownContent.appendChild(viewProductBtn);
+
+        const deleteProductBtn = document.createElement("button");
+        deleteProductBtn.innerHTML =
+          '<i class="fa fa-cart-plus"></i> Delete Products';
+        deleteProductBtn.addEventListener("click", () => {
+          const modalElement = document.getElementById("deleteProductModal");
+
+          const deleteConfirmBtn = modalElement.querySelector(".D_Btn1");
+          deleteConfirmBtn.addEventListener("click", () => {
+            const rowIndex = mergedData.findIndex((row) => row.id === id);
+
+            const tableBody = document.querySelector("#dataTable tbody");
+            tableBody.removeChild(tableBody.children[rowIndex]);
+
+            userData = userData.filter((item) => item.id !== id);
+
+            mergedData = mergedData.filter((item) => item.id !== id);
+
+            localStorage.setItem("userData", JSON.stringify(userData));
+            localStorage.setItem("userMData", JSON.stringify(mergedData));
+
+            modalElement.close();
+          });
+
+          modalElement.showModal();
+        });
+        const closeDeleteElement =
+          document.getElementById("closeDeleteProduct");
+        closeDeleteElement.addEventListener("click", () => {
+          const modalElement = document.getElementById("deleteProductModal");
+          modalElement.close();
+        });
+
+        dropdownContent.appendChild(deleteProductBtn);
+
+        const editProductBtn = document.createElement("button");
+        editProductBtn.dataset.openModal = true;
+        editProductBtn.classList.add("editProductBtn");
+        editProductBtn.innerHTML = '<i class="fas fa-edit"></i> Edit Products';
+        editProductBtn.addEventListener("click", () => {
+          const modalElement = document.getElementById("editProductModal");
+          const test = mergedData.find((row) => {
+            return row.id === id;
+          });
+          modalElement.querySelector("#modal-id").value = test.id;
+          modalElement.querySelector("#modal-name").value = test.name;
+          modalElement.querySelector("#modal-title").value = test.title;
+          modalElement.querySelector("#modal-description").value =
+            test.description;
+          modalElement.querySelector("#modal-vendor").value = test.vendor;
+          modalElement.querySelector("#modal-stock").value = test.stock;
+          modalElement.querySelector("#modal-buying").value = test.buying;
+          modalElement.querySelector("#modal-sale").value = test.sale;
+          modalElement.querySelector("#modal-quantity").value = test.quantity;
+          modalElement.querySelector("#modal-type").value = test.type;
+          modalElement.querySelector("#modal-shipment").value = test.shipment;
+          modalElement.querySelector("#modal-refill").value = test.refill;
+          modalElement.querySelector("#modal-location").value =
+            test.location || test.locationAdd;
+          modalElement.showModal();
+        });
+
+        document
+          .querySelector(".table")
+          .addEventListener("click", function (event) {
+            if (event.target.classList.contains("editProductBtn")) {
+              const editBtn = event.target;
+              const tr = editBtn.closest("tr");
+              const td = tr.querySelectorAll("td");
+
+              const modalElement = document.getElementById("editProductModal");
+              modalElement.querySelector("#modal-id").value = td[1].innerHTML;
+              modalElement.querySelector("#modal-name").value = td[2].innerHTML;
+              modalElement.querySelector("#modal-title").value =
+                td[3].innerHTML;
+              modalElement.querySelector("#modal-description").value =
+                td[4].innerHTML;
+              modalElement.querySelector("#modal-vendor").value =
+                td[5].innerHTML;
+              modalElement.querySelector("#modal-stock").value =
+                td[6].innerHTML;
+              modalElement.querySelector("#modal-buying").value =
+                td[7].innerHTML;
+              modalElement.querySelector("#modal-sale").value = td[8].innerHTML;
+              modalElement.querySelector("#modal-quantity").value =
+                td[9].innerHTML;
+              modalElement.querySelector("#modal-type").value =
+                td[10].innerHTML;
+              modalElement.querySelector("#modal-shipment").value =
+                td[11].innerHTML;
+              modalElement.querySelector("#modal-refill").value =
+                td[12].innerHTML;
+              modalElement.querySelector("#modal-location").value =
+                td[13].innerHTML;
+
+              const saveBtn = document.getElementById("edit-producttBtn");
+              saveBtn.addEventListener("click", () => {
+                const editedData = {
+                  id: modalElement.querySelector("#modal-id").value,
+                  name: modalElement.querySelector("#modal-name").value,
+                  title: modalElement.querySelector("#modal-title").value,
+                  description:
+                    modalElement.querySelector("#modal-description").value,
+                  vendor: modalElement.querySelector("#modal-vendor").value,
+                  stock: modalElement.querySelector("#modal-stock").value,
+                  buying: modalElement.querySelector("#modal-buying").value,
+                  sale: modalElement.querySelector("#modal-sale").value,
+                  quantity: modalElement.querySelector("#modal-quantity").value,
+                  type: modalElement.querySelector("#modal-type").value,
+                  shipment: modalElement.querySelector("#modal-shipment").value,
+                  refill: modalElement.querySelector("#modal-refill").value,
+                  location: modalElement.querySelector("#modal-location").value,
+                };
+
+                const index = mergedData.findIndex(
+                  (item) => item.id === editedData.id
+                );
+
+                if (index !== -1) {
+                  mergedData[index] = editedData;
+                }
+
+                localStorage.setItem("userData", JSON.stringify(userData));
+                localStorage.setItem("userMData", JSON.stringify(mergedData));
+
+                td[1].innerHTML = editedData.id;
+                td[2].innerHTML = editedData.name;
+                td[3].innerHTML = editedData.title;
+                td[4].innerHTML = editedData.description;
+                td[5].innerHTML = editedData.vendor;
+                td[6].innerHTML = editedData.stock;
+                td[7].innerHTML = editedData.buying;
+                td[8].innerHTML = editedData.sale;
+                td[9].innerHTML = editedData.quantity;
+                td[10].innerHTML = editedData.type;
+                td[11].innerHTML = editedData.shipment;
+                td[12].innerHTML = editedData.refill;
+                td[13].innerHTML = editedData.location;
+
+                modalElement.close();
+              });
+
+              modalElement.showModal();
+            }
+          });
+
+        const closeElement = document.getElementById("closeEditProduct");
+        closeElement.addEventListener("click", () => {
+          const modalElement = document.getElementById("editProductModal");
+          modalElement.close();
+        });
+
+        dropdownContent.appendChild(editProductBtn);
+
+        dropdown.appendChild(dropdownContent);
+
+        return dropdown;
+      }
+
+      window.onload = () => {
+        populateTable();
+        filterTable();
+      };
+    </script>
+    <!-- For Edit Product Modal -->
+    <dialog id="editProductModal" data-modal class="modal">
+      <div class="editProductModalHeader">
+        <div class="editModalHeading">
+          <div>Edit Product</div>
+        </div>
+        <div class="closeEditProductModalBtn">
+          <button data-close-modal id="closeEditProduct">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="main_Inputs_Container">
+        <div class="id_input">
+          <label htmlFor="text" className="label">ID</label>
+          <input type="text" id="modal-id" class="add_input" />
+        </div>
+        <div class="name_input">
+          <label htmlFor="text" className="label">Name</label>
+          <input type="text" id="modal-name" class="add_input" />
+        </div>
+        <div class="title_input">
+          <label htmlFor="text" className="label">Title</label>
+          <input type="text" id="modal-title" class="add_input" />
+        </div>
+        <div class="description_input">
+          <label htmlFor="text" className="label">Description</label>
+          <input type="text" id="modal-description" class="add_input" />
+        </div>
+        <div class="vendor_input">
+          <label htmlFor="text" className="label">Vendor</label>
+          <input type="text" id="modal-vendor" class="add_input" />
+        </div>
+        <div class="inStock_input">
+          <label htmlFor="text" className="label">In Stock</label>
+          <input type="text" id="modal-stock" class="add_input" />
+        </div>
+        <div class="buyingPrice_input">
+          <label htmlFor="text" className="label">Buying Price</label>
+          <input type="text" id="modal-buying" class="add_input" />
+        </div>
+        <div class="salePrice_input">
+          <label htmlFor="text" className="label">Sale Price</label>
+          <input type="text" id="modal-sale" class="add_input" />
+        </div>
+        <div class="quantity_input">
+          <label htmlFor="text" className="label">Quantity</label>
+          <input type="text" id="modal-quantity" class="add_input" />
+        </div>
+        <div class="types_input">
+          <label htmlFor="text" className="label">Types</label>
+          <input type="text" id="modal-type" class="add_input" />
+        </div>
+        <div class="shipment_input">
+          <label htmlFor="text" className="label">Shipment</label>
+          <input type="text" id="modal-shipment" class="add_input" />
+        </div>
+        <div class="refillLimit_input">
+          <label htmlFor="text" className="label">Refill Limit</label>
+          <input type="text" id="modal-refill" class="add_input" />
+        </div>
+        <div class="location_input">
+          <label htmlFor="text" className="label">Location</label>
+          <input type="text" id="modal-location" class="add_input" />
+        </div>
+      </div>
+      <div class="addProductButtonDiv">
+        <button class="addProductBtn1" id="edit-producttBtn">Save</button>
+        <button class="addProductBtn2">Cancel</button>
+      </div>
+    </dialog>
+
+    <!-- For View Product Modal -->
+    <dialog id="viewProductModal" data-modal class="modal">
+      <div class="viewProductModalHeader">
+        <div class="viewModalHeading">
+          <div>View Product</div>
+        </div>
+        <div class="closeViewProductModalBtn">
+          <button data-close-modal id="closeViewProduct">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="main_Inputs_Container">
+        <div class="id_input">
+          <label htmlFor="text" className="label">ID</label>
+          <div class="viewData" id="modal-id">Dummy data</div>
+        </div>
+        <div class="name_input">
+          <label htmlFor="text" className="label">Name</label>
+          <div class="viewData" id="modal-name">Dummy data</div>
+        </div>
+        <div class="title_input">
+          <label htmlFor="text" className="label">Title</label>
+          <div class="viewData" id="modal-title">Dummy data</div>
+        </div>
+        <div class="description_input">
+          <label htmlFor="text" className="label">Description</label>
+          <div class="viewData" id="modal-description">Dummy data</div>
+        </div>
+        <div class="vendor_input">
+          <label htmlFor="text" className="label">Vendor</label>
+          <div class="viewData" id="modal-vendor">Dummy data</div>
+        </div>
+        <div class="inStock_input">
+          <label htmlFor="text" className="label">In Stock</label>
+          <div class="viewData" id="modal-stock">Dummy data</div>
+        </div>
+        <div class="buyingPrice_input">
+          <label htmlFor="text" className="label">Buying Price</label>
+          <div class="viewData" id="modal-buying">Dummy data</div>
+        </div>
+        <div class="salePrice_input">
+          <label htmlFor="text" className="label">Sale Price</label>
+          <div class="viewData" id="modal-sale">Dummy data</div>
+        </div>
+        <div class="quantity_input">
+          <label htmlFor="text" className="label">Quantity</label>
+          <div class="viewData" id="modal-quantity">Dummy data</div>
+        </div>
+        <div class="types_input">
+          <label htmlFor="text" className="label">Types</label>
+          <div class="viewData" id="modal-type">Dummy data</div>
+        </div>
+        <div class="shipment_input">
+          <label htmlFor="text" className="label">Shipment</label>
+          <div class="viewData" id="modal-shipment">Dummy data</div>
+        </div>
+        <div class="refillLimit_input">
+          <label htmlFor="text" className="label">Refill Limit</label>
+          <div class="viewData" id="modal-refill">Dummy data</div>
+        </div>
+        <div class="location_input">
+          <label htmlFor="text" className="label">Location</label>
+          <div class="viewData" id="modal-location">Dummy data</div>
+        </div>
+      </div>
+    </dialog>
+    <!-- For Delete Product Modal -->
+    <dialog id="deleteProductModal" data-modal class="modal">
+      <div class="deleteProductModalHeader">
+        <div class="deleteModalHeading">
+          <div>Delete Product</div>
+        </div>
+        <div class="closeDeleteProductModalBtn">
+          <button data-close-modal id="closeDeleteProduct">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="delete_Main_Container">
+        <div class="delete_Text1">Are you sure that you want to delete?</div>
+        <div class="delete_Text2">You won't be able to revert this!</div>
+      </div>
+      <div class="delete_Buttons">
+        <button class="D_Btn1">Yes</button>
+        <button class="D_Btn2">No</button>
+      </div>
+    </dialog>
+  </body>
+</html>
