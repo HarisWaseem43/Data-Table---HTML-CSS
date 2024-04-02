@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Login Form</title>
+  </head>
+  <body>
+    <div>
+      <div class="Main_Container">
+        <form id="login-form">
+          <div class="FormDiv_Container">
+            <h2 class="MainHeading">Login Account</h2>
+            <label class="emailLabel">Email</label>
+            <input
+              id="email"
+              class="emailInput"
+              type="text"
+              placeholder="Enter your Email"
+            />
+            <br />
+
+            <label class="passwordHeading">Password</label>
+            <input
+              id="password"
+              class="Inputpassword"
+              type="password"
+              placeholder="Enter your Password"
+            />
+            <button class="LoginBtn" type="submit">Login</button>
+            <div class="SignUp_Div">
+              <p class="SignUp_Text">
+                If you're not Registered, Then Go to the:
+              </p>
+              <a href="../SignUpForm/SignUppage.html" class="SignUp_Link"
+                >Sign Up Account</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("login-form");
+        if (form) {
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (!email || !password) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Email and password are required!",
+              });
+              return;
+            }
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(
+              (user) => user.email === email && user.password === password
+            );
+
+            if (user) {
+              const userData = localStorage.getItem("userMData");
+              if (userData) {
+                localStorage.setItem("loggedInUser", JSON.stringify(user));
+                console.log(user);
+
+                Swal.fire({
+                  icon: "success",
+                  title: "Login Successful",
+                  text: "Welcome back!",
+                  timer: 2000,
+                  showConfirmButton: false,
+                }).then(() => {
+                  window.location.href =
+                    "../DataTable-Sortable/SortableDataTable.html";
+                });
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "User data not found!",
+                });
+              }
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You are not registered!",
+              });
+            }
+          });
+        } else {
+          console.error("Login form not found.");
+        }
+      });
+    </script>
+  </body>
+</html>

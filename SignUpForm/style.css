@@ -1,0 +1,174 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.Main_Container {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    #057845,
+    #00a896,
+    #fcbf1e,
+    #f3703c,
+    #d6709b
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+.FormDiv_Container {
+  border: 1px solid #d1d5db;
+  padding: 3rem;
+  border-radius: 12px;
+  background-color: #eee9ca;
+  /* background: linear-gradient(to right, #fcbf1e); */
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+.emailLabel,
+.nameLabel {
+  font-weight: bold;
+  color: #057845;
+}
+
+.MainHeading {
+  font-size: 2.5rem;
+  color: #057845;
+}
+
+.emailInput,
+.Inputpassword,
+.nameInput {
+  width: calc(100% - 2rem);
+  padding: 0.75rem;
+  margin: 0.5rem auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.passwordHeading {
+  font-weight: bold;
+  margin-top: 0.75rem;
+  color: #057845;
+}
+
+.SignUpBtn {
+  background: #057845;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  width: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+
+.LoginDiv {
+  font-weight: normal;
+  text-align: center;
+}
+
+.LogIn_Text {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #626262;
+}
+
+.LogIn_Link {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #057845;
+  text-decoration: none;
+}
+@media screen and (max-width: 1024px) {
+  .MainHeading {
+    font-size: 2rem;
+  }
+  .FormDiv_Container {
+    padding: 1.5rem 3rem;
+  }
+  .nameLabel,
+  .emailLabel,
+  .passwordHeading {
+    font-size: 0.9rem;
+  }
+  .emailInput,
+  .nameInput,
+  .Inputpassword {
+    padding: 0.5rem;
+  }
+  .SignUpBtn {
+    padding: 0.6rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .FormDiv_Container {
+    padding: 1rem 2rem;
+  }
+  .emailInput,
+  .Inputpassword {
+    width: calc(100% - 2rem);
+    margin: 0.5rem auto;
+  }
+  .MainHeading {
+    font-size: 1.5rem;
+  }
+  .SignUpBtn {
+    width: 50%;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .MainHeading {
+    font-size: 1.5rem;
+  }
+  .FormDiv_Container {
+    padding: 1.5rem;
+  }
+
+  .emailInput,
+  .nameInput,
+  .Inputpassword {
+    width: calc(100% - 2rem);
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+  }
+  .nameLabel,
+  .emailLabel,
+  .passwordHeading {
+    font-size: 0.8rem;
+  }
+
+  .SignUpBtn {
+    width: 50%;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  .FormDiv_Container {
+    padding: 1rem 1rem;
+  }
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
