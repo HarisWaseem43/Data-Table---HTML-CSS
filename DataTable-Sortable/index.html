@@ -579,7 +579,7 @@
         localStorage.setItem("userData", userString);
       }
       const userMData = JSON.parse(localStorage.getItem("userMData"));
-      console.log(userMData);
+      // console.log(userMData);
 
       let mergedData = [...userMData, ...userData];
 
@@ -587,7 +587,7 @@
         const tableBody = document.querySelector("#dataTable tbody");
 
         const userMData = JSON.parse(localStorage.getItem("userMData"));
-        console.log("UserMData", userMData);
+        // console.log("UserMData", userMData);
 
         const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
         const userProduct = userData.filter(
