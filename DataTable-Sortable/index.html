@@ -91,108 +91,135 @@
         <div class="main-content">
           <div class="header_Flex">
             <h1 class="h1">Product Management</h1>
-            <div>
+            <div class="productBtnDiv">
               <div class="add_Column">
-                <input
-                  title="Add More Columns"
-                  type="text"
-                  id="addColumnInput"
-                />
-                <button id="addColumnBtn">Add Column</button>
-              </div>
-              <div class="productBtnDiv">
-                <button data-open-modal class="addProductBtn">
-                  Add Product
+                <button type="button" class="add-column" id="addColumn">
+                  Add Columns
                 </button>
-                <dialog id="addProductModal" data-modal class="modal">
-                  <div class="addProductModalHeader">
-                    <div class="addModalHeading">
-                      <div>Add Product</div>
-                    </div>
-                    <div class="closeAddProductModalBtn">
-                      <button data-close-modal>
-                        <i class="fa fa-times"></i>
-                      </button>
+                <div
+                  class="modalSelecColumn"
+                  id="addColumnModal"
+                  tabindex="-1"
+                  role="dialog"
+                >
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">
+                          Select Columns to Display
+                          <i class="fa fa-times select-cancel"></i>
+                        </h5>
+                      </div>
+                      <div class="modal-body">
+                        <form id="columnSelectionForm">
+                          <!-- Checkbox options will be dynamically populated here -->
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btnSelect1 btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="button"
+                          class="btnSelect2 btn-primary"
+                          data-dismiss="modal"
+                          onclick="selectColumns()"
+                        >
+                          Select
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <form id="register-form">
-                    <div class="main_Inputs_Container">
-                      <div class="id_input">
-                        <label htmlFor="text" className="label">ID</label>
-                        <input type="text" class="add_input" id="id" />
-                      </div>
-                      <div class="name_input">
-                        <label htmlFor="text" className="label">Name</label>
-                        <input type="text" class="add_input" id="pName" />
-                      </div>
-                      <div class="title_input">
-                        <label htmlFor="text" className="label">Title</label>
-                        <input type="text" class="add_input" id="pTitle" />
-                      </div>
-                      <div class="description_input">
-                        <label htmlFor="text" className="label"
-                          >Description</label
-                        >
-                        <input
-                          type="text"
-                          class="add_input"
-                          id="pDescription"
-                        />
-                      </div>
-                      <div class="vendor_input">
-                        <label htmlFor="text" className="label">Vendor</label>
-                        <input type="text" class="add_input" id="pVendor" />
-                      </div>
-                      <div class="inStock_input">
-                        <label htmlFor="text" className="label">In Stock</label>
-                        <input type="text" class="add_input" id="pStock" />
-                      </div>
-                      <div class="buyingPrice_input">
-                        <label htmlFor="text" className="label"
-                          >Buying Price</label
-                        >
-                        <input type="text" class="add_input" id="pBuying" />
-                      </div>
-                      <div class="salePrice_input">
-                        <label htmlFor="text" className="label"
-                          >Sale Price</label
-                        >
-                        <input type="text" class="add_input" id="pSale" />
-                      </div>
-                      <div class="quantity_input">
-                        <label htmlFor="text" className="label">Quantity</label>
-                        <input type="text" class="add_input" id="pQuantity" />
-                      </div>
-                      <div class="types_input">
-                        <label htmlFor="text" className="label">Types</label>
-                        <input type="text" class="add_input" id="pType" />
-                      </div>
-                      <div class="shipment_input">
-                        <label htmlFor="text" className="label">Shipment</label>
-                        <input type="text" class="add_input" id="pShipment" />
-                      </div>
-                      <div class="refillLimit_input">
-                        <label htmlFor="text" className="label"
-                          >Refill Limit</label
-                        >
-                        <input type="text" class="add_input" id="pRefill" />
-                      </div>
-                      <div class="location_input">
-                        <label htmlFor="text" className="label">Location</label>
-                        <input type="text" class="add_input" id="pLocation" />
-                      </div>
-                    </div>
-                    <div class="addProductButtonDiv">
-                      <button class="addProductBtn1" id="register-btn">
-                        Save
-                      </button>
-                      <button class="addProductBtn2">Cancel</button>
-                    </div>
-                  </form>
-                </dialog>
+                </div>
               </div>
+              <button data-open-modal class="addProductBtn">Add Product</button>
+              <dialog id="addProductModal" data-modal class="modal">
+                <div class="addProductModalHeader">
+                  <div class="addModalHeading">
+                    <div>Add Product</div>
+                  </div>
+                  <div class="closeAddProductModalBtn">
+                    <button data-close-modal>
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <form id="register-form">
+                  <div class="main_Inputs_Container">
+                    <div class="id_input">
+                      <label htmlFor="text" className="label">ID</label>
+                      <input type="text" class="add_input" id="id" />
+                    </div>
+                    <div class="name_input">
+                      <label htmlFor="text" className="label">Name</label>
+                      <input type="text" class="add_input" id="pName" />
+                    </div>
+                    <div class="title_input">
+                      <label htmlFor="text" className="label">Title</label>
+                      <input type="text" class="add_input" id="pTitle" />
+                    </div>
+                    <div class="description_input">
+                      <label htmlFor="text" className="label"
+                        >Description</label
+                      >
+                      <input type="text" class="add_input" id="pDescription" />
+                    </div>
+                    <div class="vendor_input">
+                      <label htmlFor="text" className="label">Vendor</label>
+                      <input type="text" class="add_input" id="pVendor" />
+                    </div>
+                    <div class="inStock_input">
+                      <label htmlFor="text" className="label">In Stock</label>
+                      <input type="text" class="add_input" id="pStock" />
+                    </div>
+                    <div class="buyingPrice_input">
+                      <label htmlFor="text" className="label"
+                        >Buying Price</label
+                      >
+                      <input type="text" class="add_input" id="pBuying" />
+                    </div>
+                    <div class="salePrice_input">
+                      <label htmlFor="text" className="label">Sale Price</label>
+                      <input type="text" class="add_input" id="pSale" />
+                    </div>
+                    <div class="quantity_input">
+                      <label htmlFor="text" className="label">Quantity</label>
+                      <input type="text" class="add_input" id="pQuantity" />
+                    </div>
+                    <div class="types_input">
+                      <label htmlFor="text" className="label">Types</label>
+                      <input type="text" class="add_input" id="pType" />
+                    </div>
+                    <div class="shipment_input">
+                      <label htmlFor="text" className="label">Shipment</label>
+                      <input type="text" class="add_input" id="pShipment" />
+                    </div>
+                    <div class="refillLimit_input">
+                      <label htmlFor="text" className="label"
+                        >Refill Limit</label
+                      >
+                      <input type="text" class="add_input" id="pRefill" />
+                    </div>
+                    <div class="location_input">
+                      <label htmlFor="text" className="label">Location</label>
+                      <input type="text" class="add_input" id="pLocation" />
+                    </div>
+                  </div>
+                  <div class="addProductButtonDiv">
+                    <button class="addProductBtn1" id="register-btn">
+                      Save
+                    </button>
+                    <button class="addProductBtn2">Cancel</button>
+                  </div>
+                </form>
+              </dialog>
             </div>
           </div>
+
           <div class="container">
             <table id="dataTable" class="table">
               <thead>
@@ -351,6 +378,80 @@
     </div>
 
     <script>
+      document
+        .getElementById("addColumn")
+        .addEventListener("click", function () {
+          document.getElementById("addColumnModal").style.display = "block";
+        });
+
+      // Function to close the modal when "Cancel" button is clicked
+      document
+        .querySelector("#addColumnModal .modal-footer .btn-secondary")
+        .addEventListener("click", function () {
+          document.getElementById("addColumnModal").style.display = "none";
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var headers = document.querySelectorAll("#dataTable thead th");
+        var form = document.getElementById("columnSelectionForm");
+
+        headers.forEach(function (header, index) {
+          // if (index > 0) {
+          // Skip the first checkbox (for 'Select All')
+          var headerText = header.textContent.trim().split("Filter")[0];
+          var checkbox = document.createElement("input");
+          checkbox.setAttribute("type", "checkbox");
+          checkbox.setAttribute("value", index + 1);
+          checkbox.setAttribute("id", "column" + (index + 1));
+
+          var label = document.createElement("label");
+          label.setAttribute("for", "column" + (index + 1));
+          label.textContent = headerText;
+
+          var div = document.createElement("div");
+          div.classList.add("form-check");
+          div.appendChild(checkbox);
+          div.appendChild(label);
+
+          form.appendChild(div);
+          // }
+        });
+      });
+
+      // Function to handle column selection
+      function selectColumns() {
+        var selectedColumns = [];
+        var checkboxes = document.querySelectorAll(
+          "#columnSelectionForm input:checked"
+        );
+
+        checkboxes.forEach(function (checkbox) {
+          selectedColumns.push(parseInt(checkbox.value));
+        });
+
+        var tableRows = document.querySelectorAll("#dataTable tbody tr");
+        var tableHeaderCells = document.querySelectorAll("#dataTable thead th");
+
+        // Hide unselected columns and their headers
+        tableHeaderCells.forEach(function (header, index) {
+          if (!selectedColumns.includes(index + 1)) {
+            header.style.display = "none";
+            tableRows.forEach(function (row) {
+              row.querySelectorAll("td")[index].style.display = "none";
+            });
+          } else {
+            header.style.display = "";
+            tableRows.forEach(function (row) {
+              row.querySelectorAll("td")[index].style.display = "";
+            });
+          }
+        });
+
+        // Hide the table header if no columns are selected
+        var tableHeader = document.querySelector("#dataTable thead");
+        tableHeader.style.display = selectedColumns.length > 0 ? "" : "none";
+      }
+
       function toggleNav() {
         const navSidebar = document.querySelector(".nav_sidebar");
         navSidebar.classList.toggle("show");
@@ -484,36 +585,6 @@
       document.querySelectorAll(".search-input").forEach((input) => {
         input.addEventListener("input", filterTable);
       });
-
-      function addColumn(columnName) {
-        const tableHead = document.querySelector("#dataTable thead tr");
-        const newColumn = document.createElement("th");
-        newColumn.textContent = columnName;
-        newColumn.classList.add("sortable");
-        newColumn.dataset.column = columnName.toLowerCase();
-        tableHead.insertBefore(newColumn, tableHead.lastElementChild);
-
-        const tableBody = document.querySelector("#dataTable tbody");
-        const rows = tableBody.querySelectorAll("tr");
-        rows.forEach((row) => {
-          const newCell = document.createElement("td");
-          newCell.textContent = "New Cell";
-          newCell.classList.add(columnName.toLowerCase());
-          row.insertBefore(newCell, row.lastElementChild);
-        });
-      }
-
-      document
-        .getElementById("addColumnBtn")
-        .addEventListener("click", function () {
-          const columnName = document
-            .getElementById("addColumnInput")
-            .value.trim();
-          if (columnName !== "") {
-            addColumn(columnName);
-            document.getElementById("addColumnInput").value = "";
-          }
-        });
 
       const openAddProductBtn = document.querySelector(".addProductBtn");
       const closeBtn = document.querySelector("[data-close-modal]");
@@ -976,7 +1047,7 @@
       </div>
     </dialog>
     <!-- For Delete Product Modal -->
-    <dialog id="deleteProductModal" data-modal class="modal">
+    <dialog id="deleteProductModal" data-modal class="modal deleteModal">
       <div class="deleteProductModalHeader">
         <div class="deleteModalHeading">
           <div>Delete Product</div>
