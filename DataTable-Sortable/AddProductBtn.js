@@ -68,7 +68,7 @@ export function initializeVariables() {
   }
 }
 
-export function populateTable(userData) {
+export function populateTable() {
   const tableBody = document.querySelector("#dataTable tbody");
 
   const mergedData = [...userMData, ...userData];
@@ -158,10 +158,10 @@ export function createActionsDropdown(id) {
 
       userData = userData.filter((item) => item.id !== id);
 
-      mergedData = mergedData.filter((item) => item.id !== id);
+      userMData = userMData.filter((item) => item.id !== id);
 
       localStorage.setItem("userData", JSON.stringify(userData));
-      localStorage.setItem("userMData", JSON.stringify(mergedData));
+      localStorage.setItem("userMData", JSON.stringify(userMData));
 
       modalElement.close();
     });
@@ -286,5 +286,5 @@ export function createActionsDropdown(id) {
 
 window.onload = () => {
   initializeVariables();
-  populateTable(userData);
+  populateTable();
 };
