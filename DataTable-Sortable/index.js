@@ -1,69 +1,31 @@
-import { AddColumn, selectColumns } from "./AddColumn.js";
-import {
-  toggleNav,
-  logoutUser,
-  loggedInUserInfo,
-} from "./PopulateLoggedInUser.js";
-import { sortTable, searchQuery, filterTable } from "./SortingNFiltering.js";
-import {
-  AddBtn,
-  initializeVariables,
-  createActionsDropdown,
-} from "./AddProductBtn.js";
+import { ColumnManager } from "./AddColumn.js";
+import { UserInterface } from "./PopulateLoggedInUser.js";
+import { TableManager } from "./SortingNFiltering.js";
+import { ProductManagement } from "./AddProductBtn.js";
 
-//  Calling FUnctions
+// <-------------- Select Column ----------------->
 // on the click of Add Column Button the modal is opened with column headers options
-AddColumn();
+const columnManager = new ColumnManager();
 
-// Click on the select column button it adds the column the data table
+// Click on the select column button it adds the column in the data table
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".btnSelect2").addEventListener("click", function () {
-    selectColumns();
+    columnManager.selectColumns();
   });
 });
 
-// For opening the hamburger menu
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector("#toggleNav").addEventListener("click", function () {
-    toggleNav();
-  });
-});
+// It Handles the Logout, Toggle Nav and Get the Username and Email
+const userInterface = new UserInterface();
 
-// For clossing the hamburger menu
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector("#closeToggle").addEventListener("click", function () {
-    toggleNav();
-  });
-});
+// This handles the Sorting, Filtering and Searching the Table Item
+const tableManager = new TableManager();
 
-// On the Click of Logout button user is logged out
-logoutUser();
+// It handles the all CRUD operation of the Table and Populate the table
+const productManagement = new ProductManagement();
+productManagement.initializeVariables();
+productManagement.populateTable();
+ProductManagement.openAddProductBtn();
 
-//Get the User Name and Email
-loggedInUserInfo();
-
-// Sort the table in ascending and descending order
-sortTable();
-
-//Set the values in the input field for searching
-searchQuery();
-
-// FIltered out the data which is searched
-filterTable();
-
-//Add Product Button
-AddBtn();
-
-// Set the value for add product
-initializeVariables();
-
-const userMData = JSON.parse(localStorage.getItem("userMData"));
-let mergedData = [...userMData, ...userData];
-console.log("MergedData - Global : ", userMData);
-
-// Create Action Buttons with Modal
-createActionsDropdown(id);
-
-window.onload = () => {
-  filterTable();
-};
+// window.onload = () => {
+//   filterTable();
+// };

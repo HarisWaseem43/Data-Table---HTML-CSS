@@ -1,72 +1,98 @@
-export function AddColumn() {
-  document.getElementById("addColumn").addEventListener("click", function () {
-    document.getElementById("addColumnModal").style.display = "block";
-  });
+export class ColumnManager {
+  constructor() {
+    // Initialize selected columns array and set up the initial state
+    this.selectedColumns = [];
+    this.init();
+  }
 
-  // Function to close the modal when "Cancel" button is clicked
-  document
-    .querySelector("#addColumnModal .modal-footer .btn-secondary")
-    .addEventListener("click", function () {
-      document.getElementById("addColumnModal").style.display = "none";
+  init() {
+    // Event listener for "Add Column" button to show the modal
+    document.getElementById("addColumn").addEventListener("click", () => {
+      document.getElementById("addColumnModal").style.display = "block";
     });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    var headers = document.querySelectorAll("#dataTable thead th");
-    var form = document.getElementById("columnSelectionForm");
+    // Event listener for closing the modal
+    document
+      .querySelector("#addColumnModal .modal-footer .btn-secondary")
+      .addEventListener("click", () => {
+        document.getElementById("addColumnModal").style.display = "none";
+      });
 
-    headers.forEach(function (header, index) {
-      // if (index > 0) {
-      // Skip the first checkbox (for 'Select All')
+    // Functionality to generate checkboxes for desired columns in the modal
+    document.addEventListener("DOMContentLoaded", () => {
+      var headers = document.querySelectorAll("#dataTable thead th");
+      var form = document.getElementById("columnSelectionForm");
+
+      headers.forEach((header, index) => {
+        var headerText = header.textContent.trim().split("Filter")[0];
+        const includeHeader = ["Shipment", "Refill Limit", "Location"];
+        if (includeHeader.includes(headerText)) {
+          var checkbox = document.createElement("input");
+          checkbox.setAttribute("type", "checkbox");
+          checkbox.setAttribute("value", index + 1);
+          checkbox.setAttribute("id", "column" + (index + 1));
+
+          var label = document.createElement("label");
+          label.setAttribute("for", "column" + (index + 1));
+          label.textContent = headerText;
+
+          var div = document.createElement("div");
+          div.classList.add("form-check");
+          div.appendChild(checkbox);
+          div.appendChild(label);
+
+          form.appendChild(div);
+        }
+      });
+    });
+  }
+
+  // Method to handle column selection
+  selectColumns() {
+    this.selectedColumns = [];
+    var checkboxes = document.querySelectorAll(
+      "#columnSelectionForm input:checked"
+    );
+
+    checkboxes.forEach((checkbox) => {
+      this.selectedColumns.push(parseInt(checkbox.value));
+    });
+
+    var tableRows = document.querySelectorAll("#dataTable tbody tr");
+    var tableHeaderCells = document.querySelectorAll("#dataTable thead th");
+
+    // Show/hide selected columns in the table
+    tableHeaderCells.forEach((header, index) => {
       var headerText = header.textContent.trim().split("Filter")[0];
-      var checkbox = document.createElement("input");
-      checkbox.setAttribute("type", "checkbox");
-      checkbox.setAttribute("value", index + 1);
-      checkbox.setAttribute("id", "column" + (index + 1));
-
-      var label = document.createElement("label");
-      label.setAttribute("for", "column" + (index + 1));
-      label.textContent = headerText;
-
-      var div = document.createElement("div");
-      div.classList.add("form-check");
-      div.appendChild(checkbox);
-      div.appendChild(label);
-
-      form.appendChild(div);
-      // }
+      if (
+        !this.selectedColumns.includes(index + 1) &&
+        ["Actions"].includes(headerText)
+      ) {
+        // Always show the "Actions" column
+        header.style.display = "";
+        tableRows.forEach((row) => {
+          row.querySelectorAll("td")[index].style.display = "";
+        });
+      } else if (
+        !this.selectedColumns.includes(index + 1) &&
+        ["Shipment", "Refill Limit", "Location"].includes(headerText)
+      ) {
+        // Hide the header and associated cells if not selected
+        header.style.display = "none";
+        tableRows.forEach((row) => {
+          row.querySelectorAll("td")[index].style.display = "none";
+        });
+      } else {
+        // Show the header and associated cells if selected
+        header.style.display = "";
+        tableRows.forEach((row) => {
+          row.querySelectorAll("td")[index].style.display = "";
+        });
+      }
     });
-  });
-}
 
-export function selectColumns() {
-  var selectedColumns = [];
-  var checkboxes = document.querySelectorAll(
-    "#columnSelectionForm input:checked"
-  );
-
-  checkboxes.forEach(function (checkbox) {
-    selectedColumns.push(parseInt(checkbox.value));
-  });
-
-  var tableRows = document.querySelectorAll("#dataTable tbody tr");
-  var tableHeaderCells = document.querySelectorAll("#dataTable thead th");
-
-  // Hide unselected columns and their headers
-  tableHeaderCells.forEach(function (header, index) {
-    if (!selectedColumns.includes(index + 1)) {
-      header.style.display = "none";
-      tableRows.forEach(function (row) {
-        row.querySelectorAll("td")[index].style.display = "none";
-      });
-    } else {
-      header.style.display = "";
-      tableRows.forEach(function (row) {
-        row.querySelectorAll("td")[index].style.display = "";
-      });
-    }
-  });
-
-  // Hide the table header if no columns are selected
-  var tableHeader = document.querySelector("#dataTable thead");
-  tableHeader.style.display = selectedColumns.length > 0 ? "" : "none";
+    // Show/hide the table header based on selected columns
+    var tableHeader = document.querySelector("#dataTable thead");
+    tableHeader.style.display = this.selectedColumns.length > 0 ? "" : "none";
+  }
 }

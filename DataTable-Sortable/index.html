@@ -86,7 +86,7 @@
           </p>
         </div>
       </div>
-      <!-- Mobile Navbar End -->
+      <!-- Main Container -->
       <div class="Main_Container_Content">
         <div class="main-content">
           <div class="header_Flex">
@@ -105,10 +105,7 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">
-                          Select Columns to Display
-                          <i class="fa fa-times select-cancel"></i>
-                        </h5>
+                        <h5 class="modal-title">Select Columns to Display</h5>
                       </div>
                       <div class="modal-body">
                         <form id="columnSelectionForm">
@@ -376,74 +373,6 @@
       </div>
     </div>
 
-    <!-- <script type="module">
-      import { AddColumn, selectColumns } from "./AddColumn.js";
-      import {
-        toggleNav,
-        logoutUser,
-        loggedInUserInfo,
-      } from "./PopulateLoggedInUser.js";
-      import {
-        sortTable,
-        toggleSortOrder,
-        searchQuery,
-        filterTable,
-      } from "./SortingNFiltering.js";
-      import {
-        AddBtn,
-        initializeVariables,
-        createActionsDropdown,
-      } from "./AddProductBtn.js";
-
-      // Import Function
-      AddColumn();
-
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelector(".btnSelect2")
-          .addEventListener("click", function () {
-            selectColumns();
-          });
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelector("#toggleNav")
-          .addEventListener("click", function () {
-            toggleNav();
-          });
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelector("#closeToggle")
-          .addEventListener("click", function () {
-            toggleNav();
-          });
-      });
-
-      logoutUser();
-      loggedInUserInfo();
-
-      sortTable();
-      searchQuery();
-      filterTable();
-
-      AddBtn();
-
-      initializeVariables();
-
-      const userMData = JSON.parse(localStorage.getItem("userMData"));
-      let mergedData = [...userMData, ...userData];
-      console.log("MergedData - Global : ", userMData);
-
-      createActionsDropdown(id);
-
-      window.onload = () => {
-        filterTable();
-      };
-    </script> -->
-
     <!-- For Edit Product Modal -->
     <dialog id="editProductModal" data-modal class="modal">
       <div class="editProductModalHeader">
@@ -604,6 +533,7 @@
         <button class="D_Btn2">No</button>
       </div>
     </dialog>
+
     <script type="module" src="./index.js"></script>
   </body>
 </html>
