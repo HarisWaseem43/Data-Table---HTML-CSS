@@ -136,6 +136,7 @@ html {
 #columnSelectionForm {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 .add_Column button:hover {
   background-color: #4caf50;
@@ -221,6 +222,7 @@ html {
   text-transform: uppercase;
   background-color: #057845;
   color: white;
+  cursor: pointer;
 }
 
 /* Fixed Checkboxes */
@@ -554,9 +556,12 @@ table tr:nth-last-child(-n + 3) .dropdown-content {
   .form-check {
     width: 12.7rem;
   }
+  #columnSelectionForm {
+    flex-direction: column;
+  }
   .modalSelecColumn {
-    max-width: 40vw;
-    height: 52vh;
+    max-width: 20vw;
+    height: 24vh;
   }
   #addColumnModal {
     right: 0rem;
@@ -570,9 +575,12 @@ table tr:nth-last-child(-n + 3) .dropdown-content {
   .form-check {
     width: 9.6rem;
   }
+  #columnSelectionForm {
+    flex-direction: column;
+  }
   .modalSelecColumn {
-    max-width: 40vw;
-    height: 52vh;
+    max-width: 28vw;
+    height: 32vh;
   }
   #addColumnModal {
     right: 0rem;
@@ -638,8 +646,8 @@ table tr:nth-last-child(-n + 3) .dropdown-content {
     width: 7.6rem;
   }
   .modalSelecColumn {
-    max-width: 60vw;
-    height: 52vh;
+    max-width: 49vw;
+    height: 33vh;
   }
   #addColumnModal {
     right: 0rem;
@@ -755,8 +763,8 @@ table tr:nth-last-child(-n + 3) .dropdown-content {
     width: 8.2rem;
   }
   .modalSelecColumn {
-    max-width: 70vw;
-    height: 52vh;
+    max-width: 33vw;
+    height: 57vh;
   }
   #addColumnModal {
     right: 0rem;
@@ -809,8 +817,8 @@ table tr:nth-last-child(-n + 3) .dropdown-content {
     width: 8.2rem;
   }
   .modalSelecColumn {
-    max-width: 70vw;
-    height: 80vh;
+    max-width: 65vw;
+    height: 33vh;
   }
   #addColumnModal {
     right: 0rem;
