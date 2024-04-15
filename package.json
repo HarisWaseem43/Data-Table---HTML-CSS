@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/HarisWaseem43/Data-Table---HTML-CSS#readme",
   "dependencies": {
-    "mongodb": "^6.5.0"
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.1"
   }
 }
