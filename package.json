@@ -1,0 +1,23 @@
+{
+  "name": "data-table",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarisWaseem43/Data-Table---HTML-CSS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarisWaseem43/Data-Table---HTML-CSS/issues"
+  },
+  "homepage": "https://github.com/HarisWaseem43/Data-Table---HTML-CSS#readme",
+  "dependencies": {
+    "mongodb": "^6.5.0"
+  }
+}

@@ -19,6 +19,7 @@ const userInterface = new UserInterface();
 
 // This handles the Sorting, Filtering and Searching the Table Item
 const tableManager = new TableManager();
+// tableManager.filterTable();
 
 // It handles the all CRUD operation of the Table and Populate the table
 const productManagement = new ProductManagement();
@@ -26,6 +27,7 @@ productManagement.initializeVariables();
 productManagement.populateTable();
 ProductManagement.openAddProductBtn();
 
-// window.onload = () => {
-//   filterTable();
-// };
+window.onload = () => {
+  // filterTable();
+  // tableManager.filterTable();
+};

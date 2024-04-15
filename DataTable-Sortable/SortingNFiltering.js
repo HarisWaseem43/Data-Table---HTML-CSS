@@ -176,5 +176,6 @@ export class TableManager {
 }
 // Automatically filter table on window load
 window.onload = () => {
-  filterTable();
+  const tableManager = new TableManager();
+  tableManager.filterTable();
 };
